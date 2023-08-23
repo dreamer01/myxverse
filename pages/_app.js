@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }) {
       <nav className='pl-28 pr-28 pt-8 flex items-center justify-between '>
         <Link href='/'>
           <div className='flex items-center '>
-            <img className='w-12' alt='logo' src='./nft.png' />
+            <img className='w-16' alt='logo' src='./myx-log.webp' />
             <p className='text-4xl font-bold text-blue-100 ml-1'>MyxTokens</p>
           </div>
         </Link>
