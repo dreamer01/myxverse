@@ -143,8 +143,8 @@ export default function CreateItem() {
           {fileUrl && (
             <Image
               className='rounded mt-4'
-              width={500}
-              height={500}
+              width={600}
+              height={800}
               src={fileUrl}
             />
           )}
