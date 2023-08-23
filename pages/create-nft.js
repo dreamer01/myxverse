@@ -6,6 +6,8 @@ import Web3Modal from 'web3modal';
 import axios from 'axios';
 import Image from 'next/image';
 
+import Styles from './create.module.css';
+
 const apiKey = '9bbfbe7b86476b4776ae';
 const apiSecret =
   'aa00183065a69516e43809a56109e25248214491974ff998ef5b569055bbe73b';
@@ -105,44 +107,54 @@ export default function CreateItem() {
   }
 
   return (
-    <div className='flex justify-center'>
-      <div className='w-1/2 flex flex-col pb-12'>
-        <input
-          placeholder='Asset Name'
-          className='mt-8 border rounded p-4'
-          onChange={(e) =>
-            updateFormInput({ ...formInput, name: e.target.value })
-          }
-        />
-        <textarea
-          placeholder='Asset Description'
-          className='mt-2 border rounded p-4'
-          onChange={(e) =>
-            updateFormInput({ ...formInput, description: e.target.value })
-          }
-        />
-        <input
-          placeholder='Asset Price in Eth'
-          className='mt-2 border rounded p-4'
-          onChange={(e) =>
-            updateFormInput({ ...formInput, price: e.target.value })
-          }
-        />
-        <input type='file' name='Asset' className='my-4' onChange={onChange} />
-        {fileUrl && (
-          <Image
-            className='rounded mt-4'
-            width={500}
-            height={500}
-            src={fileUrl}
+    <div className={Styles.main}>
+      <div className={Styles.left}>
+        <img src='./create.png' />
+      </div>
+      <div className={`flex justify-center ${Styles.right}`}>
+        <div className='w-1/2 flex flex-col pb-12'>
+          <input
+            placeholder='Asset Name'
+            className={`mt-8 border rounded p-4 ${Styles.input}`}
+            onChange={(e) =>
+              updateFormInput({ ...formInput, name: e.target.value })
+            }
           />
-        )}
-        <button
-          onClick={listNFTForSale}
-          className='font-bold mt-4 bg-pink-500 text-white rounded p-4 shadow-lg'
-        >
-          Create NFT
-        </button>
+          <textarea
+            placeholder='Asset Description'
+            className={`mt-2 border rounded p-4 ${Styles.input}`}
+            onChange={(e) =>
+              updateFormInput({ ...formInput, description: e.target.value })
+            }
+          />
+          <input
+            placeholder='Asset Price in Eth'
+            className={`mt-2 border rounded p-4 ${Styles.input}`}
+            onChange={(e) =>
+              updateFormInput({ ...formInput, price: e.target.value })
+            }
+          />
+          <input
+            type='file'
+            name='Asset'
+            className={`my-4 ${Styles.input}`}
+            onChange={onChange}
+          />
+          {fileUrl && (
+            <Image
+              className='rounded mt-4'
+              width={500}
+              height={500}
+              src={fileUrl}
+            />
+          )}
+          <button
+            onClick={listNFTForSale}
+            className={`font-bold mt-4 bg-pink-500 text-white rounded p-4 shadow-lg ${Styles.button}`}
+          >
+            Create NFT
+          </button>
+        </div>
       </div>
     </div>
   );

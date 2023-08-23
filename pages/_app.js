@@ -1,38 +1,37 @@
 /* pages/_app.js */
-import '../styles/globals.css'
-import Link from 'next/link'
+import '../styles/globals.css';
+import Link from 'next/link';
+
+import Styles from './app.module.css';
 
 function MyApp({ Component, pageProps }) {
   return (
     <div>
-      <nav className="border-b p-6">
-        <p className="text-4xl font-bold">Metaverse Marketplace</p>
-        <div className="flex mt-4">
-          <Link href="/">
-            <a className="mr-4 text-pink-500">
-              Home
-            </a>
+      <nav className='pl-28 pr-28 pt-8 flex items-center justify-between '>
+        <Link href='/'>
+          <div className='flex items-center '>
+            <img className='w-12' alt='logo' src='./nft.png' />
+            <p className='text-4xl font-bold text-blue-100 ml-1'>MyxTokens</p>
+          </div>
+        </Link>
+        <div className='flex mt-4'>
+          <Link href='/marketplace'>
+            <a className={Styles.link}>Explore</a>
           </Link>
-          <Link href="/create-nft">
-            <a className="mr-6 text-pink-500">
-              Sell NFT
-            </a>
+          <Link href='/create-nft'>
+            <a className={Styles.link}>Create</a>
           </Link>
-          <Link href="/my-nfts">
-            <a className="mr-6 text-pink-500">
-              My NFTs
-            </a>
+          <Link href='/my-nfts'>
+            <a className={Styles.link}>My NFTs</a>
           </Link>
-          <Link href="/dashboard">
-            <a className="mr-6 text-pink-500">
-              Dashboard
-            </a>
+          <Link href='/dashboard'>
+            <a className={Styles.link}>Dashboard</a>
           </Link>
         </div>
       </nav>
       <Component {...pageProps} />
     </div>
-  )
+  );
 }
 
-export default MyApp
+export default MyApp;
